@@ -10,10 +10,18 @@ export function fetchAllProducts(){
     }
     );
 }
-export function fetchProductsByFilters(filter){
+export function fetchProductsByFilters(filter,sort){
     let query = '';
     for(let key in filter){
-        query += `${key}=${filter[key]}&`;
+        const categoryValues=filter[key];
+        if(categoryValues.length>0){
+        const lastCategoryValue=categoryValues[categoryValues.length-1]
+        query += `${key}=${lastCategoryValue}&`;
+        }
+        
+    }
+    for(let key in sort){
+        query += `${key}=${sort[key]}&`;
     }
     return new Promise(async (resolve, reject) => {
         try {
