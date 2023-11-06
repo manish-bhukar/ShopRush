@@ -423,7 +423,7 @@ function Pagination({page,setPage,handlePage,totalItems}) {
         <div>
           <p className="text-sm text-gray-700">
             Showing{" "}
-            <span className="font-medium">{(page - 1) * ITEMS_PER_PAGE}</span>{" "}
+            <span className="font-medium">{(page - 1) * ITEMS_PER_PAGE+1}</span>{" "}
             to{" "}
             <span className="font-medium">
               {page * ITEMS_PER_PAGE > totalItems
