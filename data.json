@@ -721,7 +721,17 @@
     {
       "email": "manish20223142@gmail.com",
       "password": "Manish@1234",
-      "addresses": [],
+      "addresses": [
+        {
+          "name": "manish bhukar",
+          "email": "manish20223142@gmail.com",
+          "phone": "123456",
+          "street": "sdfghj",
+          "city": "Prayagraj",
+          "state": "Uttarpradesh",
+          "pinCode": "123456"
+        }
+      ],
       "role": "user",
       "id": 1
     },
@@ -745,6 +755,34 @@
       "addresses": [],
       "role": "user",
       "id": 4
+    },
+    {
+      "email": "manish20223142@gmail.com",
+      "password": "Manish@1234",
+      "addresses": [],
+      "role": "user",
+      "id": 5
+    },
+    {
+      "email": "manish20223142@gmail.com",
+      "password": "Manish@1234",
+      "addresses": [],
+      "role": "user",
+      "id": 6
+    },
+    {
+      "email": "manish20223142@gmail.com",
+      "password": "Manish@1234",
+      "addresses": [],
+      "role": "user",
+      "id": 7
+    },
+    {
+      "email": "www.manish0739@gmail.com",
+      "password": "Manish@1234",
+      "addresses": [],
+      "role": "user",
+      "id": 8
     }
   ],
   "cart": [
@@ -768,6 +806,63 @@
       ],
       "quantity": 1,
       "user": 2
+    },
+    {
+      "title": "Samsung Universe 9",
+      "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+      "price": 1249,
+      "discountPercentage": 15.46,
+      "rating": 4.09,
+      "stock": 36,
+      "brand": "Samsung",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/3/1.jpg"
+      ],
+      "quantity": 1,
+      "user": 5,
+      "id": 8
+    },
+    {
+      "title": "iPhone X",
+      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      "price": 899,
+      "discountPercentage": 17.94,
+      "rating": 4.44,
+      "stock": 34,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/2/1.jpg",
+        "https://i.dummyjson.com/data/products/2/2.jpg",
+        "https://i.dummyjson.com/data/products/2/3.jpg",
+        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "user": 1,
+      "id": 9
+    },
+    {
+      "title": "iPhone X",
+      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      "price": 899,
+      "discountPercentage": 17.94,
+      "rating": 4.44,
+      "stock": 34,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/2/1.jpg",
+        "https://i.dummyjson.com/data/products/2/2.jpg",
+        "https://i.dummyjson.com/data/products/2/3.jpg",
+        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "user": 6,
+      "id": 10
     }
   ]
 }
