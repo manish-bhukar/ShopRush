@@ -20,6 +20,9 @@ import CartPage from './Pages/CartPage';
 import Protected from './features/Auth/Protected';
 import { fetchItemsByUserIdAsync } from './features/cart/cartSlice';
 import { selectloggedInUser } from './features/Auth/authSlice';
+import PageNotFound from './Pages/404';
+import OrderSucessPage from './Pages/OrderSuccessPage';
+import UserOrdersPage from './Pages/UserOrderspage';
 
 const router = createBrowserRouter([
   {
@@ -46,6 +49,19 @@ const router = createBrowserRouter([
     path: "/Cart",
     element: <Protected> <CartPage></CartPage></Protected>,
   },
+  {
+    path:"/order-success/:id",
+    element:<OrderSucessPage></OrderSucessPage>
+  },
+  {
+    path:"/orders",
+    element:<UserOrdersPage></UserOrdersPage>
+  },
+  {
+  path:"*",
+  element:<PageNotFound></PageNotFound>
+  }
+
 ]);
 function App() {
   const dispatch = useDispatch();
