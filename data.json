@@ -783,6 +783,13 @@
       "addresses": [],
       "role": "user",
       "id": 8
+    },
+    {
+      "email": "test12@gmail.com",
+      "password": "MMManish@1234",
+      "addresses": [],
+      "role": "user",
+      "id": 9
     }
   ],
   "cart": [
