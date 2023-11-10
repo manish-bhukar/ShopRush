@@ -1,17 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { createUser,checkUser, updateUser } from './authAPI';
-
+import { createUser,checkUser, signOut } from './authAPI';
+import { updateUser } from '../../User/userAPI';
 const initialState = {
   loggedInUser:null,
   status: 'idle',
   error:null
 };
-
-// The function below is called a thunk and allows us to perform async logic. It
-// can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
-// will call the thunk with the `dispatch` function as the first argument. Async
-// code can then be executed and other actions can be dispatched. Thunks are
-// typically used to make async requests.
 export const createUserAsync = createAsyncThunk(
   'user/createUser',
   async (userData) => {
@@ -24,7 +18,13 @@ export const checkUserAsync = createAsyncThunk(
   'user/checkUser',
   async (loginInfo) => {
     const response = await checkUser(loginInfo);
-    // The value we return becomes the `fulfilled` action payload
+    return response.data;
+  }
+);
+export const signOutAsync = createAsyncThunk(
+  'user/signOut',
+  async (loginInfo) => {
+    const response = await signOut(loginInfo);
     return response.data;
   }
 );
@@ -32,7 +32,6 @@ export const updateUserAsync = createAsyncThunk(
   'user/updateUser',
   async (update) => {
     const response = await updateUser(update);
-    // The value we return becomes the `fulfilled` action payload
     return response.data;
   }
 );
@@ -76,6 +75,13 @@ export const counterSlice = createSlice({
       .addCase(updateUserAsync.fulfilled, (state, action) => {
         state.status = 'idle';
         state.loggedInUser = action.payload;
+      })
+      .addCase(signOutAsync.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(signOutAsync.fulfilled, (state, action) => {
+        state.status = 'idle';
+        state.loggedInUser = null;
       })
   },
 });

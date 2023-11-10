@@ -19,15 +19,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import CartPage from './Pages/CartPage';
 import Protected from './features/Auth/Protected';
 import { fetchItemsByUserIdAsync } from './features/cart/cartSlice';
-import { selectloggedInUser } from './features/Auth/authSlice';
 import PageNotFound from './Pages/404';
 import OrderSucessPage from './Pages/OrderSuccessPage';
 import UserOrdersPage from './Pages/UserOrderspage';
+import UserProfilePage from './Pages/UserProfile';
+import { fetchLoggedInUserAsync, selectUserInfo } from './User/userSlice';
+import Logout from './features/Auth/Logout';
+import ForgotPassword from './features/Auth/ForgotPassword';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Protected><Home></Home></Protected>,
+    element: (
+      <Protected>
+        <Home></Home>
+      </Protected>
+    ),
   },
   {
     path: "/login",
@@ -39,36 +46,77 @@ const router = createBrowserRouter([
   },
   {
     path: "/checkout",
-    element: <Protected><Checkout></Checkout></Protected>
+    element: (
+      <Protected>
+        <Checkout></Checkout>
+      </Protected>
+    ),
   },
   {
     path: "/product-detail/:id",
-    element: <Protected><ProductDetailPage></ProductDetailPage></Protected> ,
+    element: (
+      <Protected>
+        <ProductDetailPage></ProductDetailPage>
+      </Protected>
+    ),
   },
   {
     path: "/Cart",
-    element: <Protected> <CartPage></CartPage></Protected>,
+    element: (
+      <Protected>
+        {" "}
+        <CartPage></CartPage>
+      </Protected>
+    ),
   },
   {
-    path:"/order-success/:id",
-    element:<OrderSucessPage></OrderSucessPage>
+    path: "/order-success/:id",
+    element: (
+      <Protected>
+        <OrderSucessPage></OrderSucessPage>
+      </Protected>
+    ),
   },
   {
-    path:"/orders",
-    element:<UserOrdersPage></UserOrdersPage>
+    path: "/orders",
+    element: (
+      <Protected>
+        <UserOrdersPage></UserOrdersPage>
+      </Protected>
+    ),
   },
   {
-  path:"*",
-  element:<PageNotFound></PageNotFound>
-  }
-
+    path: "/profile",
+    element: (
+      <Protected>
+        <UserProfilePage></UserProfilePage>
+      </Protected>
+    ),
+  },
+  {
+    path: "/logout",
+    element: (
+      <Logout></Logout>
+    ),
+  },
+  {
+    path: "/forgot-password",
+    element: (
+      <ForgotPassword></ForgotPassword>
+    ),
+  },
+  {
+    path: "*",
+    element: <PageNotFound></PageNotFound>,
+  },
 ]);
 function App() {
   const dispatch = useDispatch();
-  const user=useSelector(selectloggedInUser);
+  const user=useSelector(selectUserInfo);
   useEffect(()=>{
     if(user){
  dispatch(fetchItemsByUserIdAsync(user.id))
+   dispatch(fetchLoggedInUserAsync(user.id))
     }
    
   },[dispatch,user]

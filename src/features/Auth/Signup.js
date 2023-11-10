@@ -28,7 +28,7 @@ export default function Signup(){
           </h2>
         </div>
 
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        {/* <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form
             noValidate
             className="space-y-6"
@@ -59,7 +59,7 @@ export default function Signup(){
                 />
                {errors.email && <p className="text-red-500">{errors.email.message}</p>}
               </div>
-            </div>
+            </div> */}
  
 
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -113,12 +113,11 @@ export default function Signup(){
                     Password
                   </label>
                   <div className="text-sm">
-                    <a
-                      href="#"
+                 <Link to="/forgot-password"
                       className="font-semibold text-indigo-600 hover:text-indigo-500"
                     >
                       Forgot password?
-                    </a>
+                    </Link> 
                   </div>
                 </div>
                 <div className="mt-2">
@@ -171,14 +170,14 @@ export default function Signup(){
               </div>
 
               <div>
-                <Link to='/login'>
+                {/* <Link to='/login'> */}
                   <button
                     type="submit"
                     className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Sign up
                   </button>
-                </Link>
+                {/* </Link> */}
               </div>
             </form>
 

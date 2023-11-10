@@ -1,4 +1,4 @@
-import { UseSelector, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectloggedInUser } from "./authSlice";
 import { Navigate } from "react-router-dom";
 export default function Protected({children}){
