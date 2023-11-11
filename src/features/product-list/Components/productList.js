@@ -23,7 +23,8 @@ import {
   PlusIcon,
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
-
+import { selectProductStatus } from "../product-listSlice";
+import { RotatingLines } from "react-loader-spinner";
 const sortOptions = [
   { name: "Price: Low to High", sort: "price", order: "asc", current: false },
   { name: "Price: High to Low", sort: "price", order: "desc", current: false },
@@ -39,6 +40,7 @@ export default function ProductList() {
   const totalItems=useSelector(selecttotalItems);
   const brands = useSelector(selectBrands);
   const category=useSelector(selectCategories);
+  const status=useSelector(selectProductStatus);
   const filters = [
     {
       id: "brand",
@@ -99,6 +101,7 @@ export default function ProductList() {
     <div>
       <div>
         <div className="bg-white">
+        
           <div>
             <MobileFilter
               mobileFiltersOpen={mobileFiltersOpen}
@@ -183,18 +186,24 @@ export default function ProductList() {
               >
                 <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
                   {/* Filters */}
-                  <DesktopFilter handleFilter={handleFilter}
-                  filters={filters}
+                  <DesktopFilter
+                    handleFilter={handleFilter}
+                    filters={filters}
                   ></DesktopFilter>
 
                   {/* Product grid */}
-                  <ProductGrid products={products}></ProductGrid>
+                  <ProductGrid products={products} status={status}></ProductGrid>
                   {/* Product grid end */}
                 </div>
               </section>
               {/* Pagination starts */}
               <div>
-                <Pagination page={page} setPage={setPage} handlePage={handlePage} totalItems={totalItems}></Pagination>
+                <Pagination
+                  page={page}
+                  setPage={setPage}
+                  handlePage={handlePage}
+                  totalItems={totalItems}
+                ></Pagination>
               </div>
             </main>
           </div>
@@ -457,13 +466,22 @@ function Pagination({page,setPage,handlePage,totalItems}) {
     </div>
   );
 }
-function ProductGrid({ products }) {
+function ProductGrid({ products,status }) {
   return (
     <div className="lg:col-span-3">
       {/* This is product list */}
       <div className="bg-white">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-0 sm:py-0 lg:max-w-7xl lg:px-8">
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+            {status === "loading" ? (
+              <RotatingLines
+                strokeColor="grey"
+                strokeWidth="5"
+                animationDuration="0.75"
+                width="96"
+                visible={true}
+              />
+            ) : null}
             {products &&
               products.map((product) => (
                 <Link to={`/product-detail/${product.id}`}>
@@ -493,8 +511,12 @@ function ProductGrid({ products }) {
                           {product.color}
                         </p>
                       </div>
-                      {product.deleted&&   <div className="mt-5  text-sm text-red-400"><p>product deleted</p></div>}
-                   
+                      {product.deleted && (
+                        <div className="mt-5  text-sm text-red-400">
+                          <p>product deleted</p>
+                        </div>
+                      )}
+
                       <p className="text-sm font-medium text-gray-900">
                         ${product.price}
                       </p>
