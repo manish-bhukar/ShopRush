@@ -5,8 +5,10 @@ import { useSelector } from "react-redux";
 import { fetchAllProductsByIdAsync, selectedProductById } from "../product-listSlice";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addToCartAsync } from "../../cart/cartSlice";
+import { addToCartAsync, selectItems } from "../../cart/cartSlice";
 import {selectloggedInUser} from '../../Auth/authSlice';
+import { useAlert } from "react-alert";
+
   const highlights = [
     "Only the best materials",
     "Ethically and locally made",
@@ -25,17 +27,26 @@ const product=useSelector(selectedProductById);
 const dispatch=useDispatch();
 const params=useParams();
 const user=useSelector(selectloggedInUser);
+const items=useSelector(selectItems);
 const handleCart = (e) => {
   e.preventDefault();
-  const newItem={ ...product, quantity: 1, user: user.id };
-  delete newItem['id'];
-  dispatch(addToCartAsync(newItem));
+  if(items.findIndex(item=>item.productId===product.id)<0){
+ const newItem = { ...product,productId:product.id, quantity: 1, user: user.id };
+ console.log(newItem);
+ delete newItem["id"];
+ dispatch(addToCartAsync(newItem));
+  alert.success("Added to Cart!");
+  }
+  else{
+    alert.info("Already added in cart!");
+  }
+ 
 };
 useEffect(() => {
   dispatch(fetchAllProductsByIdAsync(params.id));
 },[dispatch,params.id])
 
-
+ const alert = useAlert();
   return (
     <div className="bg-white">
       {product && (
@@ -54,7 +65,6 @@ useEffect(() => {
                         className="mr-2 text-sm font-medium text-gray-900"
                       >
                         {breadcrumb.name}
-                      
                       </a>
                       <svg
                         width={16}
@@ -129,7 +139,7 @@ useEffect(() => {
               <p className="text-3xl tracking-tight text-gray-900">
                 ${product.price}
               </p>
- 
+
               {/* Reviews */}
               <div className="mt-6">
                 <h3 className="sr-only">Reviews</h3>
@@ -160,12 +170,12 @@ useEffect(() => {
 
               <form className="mt-10">
                 <button
-                onClick={handleCart}
+                  onClick={handleCart}
                   type="submit"
                   className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   Add to Cart
-                </button>
+                </button>{" "}
               </form>
             </div>
 
@@ -189,10 +199,10 @@ useEffect(() => {
                 <div className="mt-4">
                   <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
                     {highlights.map((highlight) => (
-                        <li key={highlight} className="text-gray-400">
-                          <span className="text-gray-600">{highlight}</span>
-                        </li>
-                      ))}
+                      <li key={highlight} className="text-gray-400">
+                        <span className="text-gray-600">{highlight}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
