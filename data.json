@@ -4,20 +4,23 @@
       "id": 1,
       "title": "iPhone 9",
       "description": "An apple mobile which is nothing like apple",
-      "price": 549,
+      "price": 53,
       "discountPercentage": 12.96,
-      "rating": 4.69,
+      "rating": 0,
       "stock": 94,
       "brand": "Apple",
       "category": "smartphones",
       "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
       "images": [
-        "https://i.dummyjson.com/data/products/1/1.jpg",
-        "https://i.dummyjson.com/data/products/1/2.jpg",
-        "https://i.dummyjson.com/data/products/1/3.jpg",
-        "https://i.dummyjson.com/data/products/1/4.jpg",
+        null,
+        null,
+        null,
         "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
-      ]
+      ],
+      "image 1": "dfghj",
+      "image 2": "gfh",
+      "image 3": "gh",
+      "deleted": true
     },
     {
       "id": 2,
@@ -551,6 +554,48 @@
         "https://i.dummyjson.com/data/products/30/3.jpg",
         "https://i.dummyjson.com/data/products/30/thumbnail.jpg"
       ]
+    },
+    {
+      "title": "Mac book 123",
+      "description": "Other",
+      "brand": "Apple",
+      "category": "laptops",
+      "price": "10000",
+      "discountPercentage": "1",
+      "stock": "0",
+      "thumbnail": "product",
+      "image 1": "product",
+      "image 2": "product",
+      "image 3": "product",
+      "images": [
+        null,
+        null,
+        null,
+        "product"
+      ],
+      "rating": 0,
+      "id": 31
+    },
+    {
+      "title": "Mac book new ",
+      "description": "very good",
+      "brand": "Apple",
+      "category": "laptops",
+      "price": 10000,
+      "discountPercentage": 1,
+      "stock": 0,
+      "thumbnail": "later",
+      "image 1": "later",
+      "image 2": "later",
+      "image 3": "later",
+      "images": [
+        null,
+        null,
+        null,
+        "later"
+      ],
+      "rating": 0,
+      "id": 32
     }
   ],
   "brands": [
@@ -724,9 +769,128 @@
       "addresses": [],
       "role": "user",
       "id": 1
+    },
+    {
+      "email": "manish20223142@gmail.com",
+      "password": "Manish@1234",
+      "addresses": [],
+      "role": "admin",
+      "id": 2
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "title": "Samsung Universe 9",
+      "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+      "price": 1249,
+      "discountPercentage": 15.46,
+      "rating": 4.09,
+      "stock": 36,
+      "brand": "Samsung",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/3/1.jpg"
+      ],
+      "quantity": 1,
+      "user": 1,
+      "id": 1
+    },
+    {
+      "title": "OPPOF19",
+      "description": "OPPO F19 is officially announced on April 2021.",
+      "price": 280,
+      "discountPercentage": 17.91,
+      "rating": 4.3,
+      "stock": 123,
+      "brand": "OPPO",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/4/1.jpg",
+        "https://i.dummyjson.com/data/products/4/2.jpg",
+        "https://i.dummyjson.com/data/products/4/3.jpg",
+        "https://i.dummyjson.com/data/products/4/4.jpg",
+        "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "user": 1,
+      "id": 2
+    },
+    {
+      "title": "Samsung Universe 9",
+      "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+      "price": 1249,
+      "discountPercentage": 15.46,
+      "rating": 4.09,
+      "stock": 36,
+      "brand": "Samsung",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/3/1.jpg"
+      ],
+      "quantity": 1,
+      "user": 1,
+      "id": 3
+    }
+  ],
   "orders": [
+    {
+      "items": [
+        {
+          "title": "iPhone 9",
+          "description": "An apple mobile which is nothing like apple",
+          "price": 549,
+          "discountPercentage": 12.96,
+          "rating": 4.69,
+          "stock": 94,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/1/1.jpg",
+            "https://i.dummyjson.com/data/products/1/2.jpg",
+            "https://i.dummyjson.com/data/products/1/3.jpg",
+            "https://i.dummyjson.com/data/products/1/4.jpg",
+            "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": 2,
+          "id": 1
+        }
+      ],
+      "totalAmt": 549,
+      "totalItems": 1,
+      "user": {
+        "email": "manish20223142@gmail.com",
+        "password": "Manish@1234",
+        "addresses": [
+          {
+            "name": "manish bhukar",
+            "email": "test@gmail.com",
+            "phone": "123456",
+            "street": "sdfghj",
+            "city": "Prayagraj",
+            "state": "Uttarpradesh",
+            "pinCode": "123456"
+          }
+        ],
+        "role": "user",
+        "id": 2
+      },
+      "paymentmethod": "cash",
+      "selectaddress": {
+        "name": "manish bhukar",
+        "email": "test@gmail.com",
+        "phone": "123456",
+        "street": "sdfghj",
+        "city": "Prayagraj",
+        "state": "Uttarpradesh",
+        "pinCode": "123456"
+      },
+      "status": "pending",
+      "id": 1
+    }
   ]
 }
