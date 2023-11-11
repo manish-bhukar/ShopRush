@@ -181,7 +181,8 @@
         "https://i.dummyjson.com/data/products/10/2.jpg",
         "https://i.dummyjson.com/data/products/10/3.jpg",
         "https://i.dummyjson.com/data/products/10/thumbnail.jpeg"
-      ]
+      ],
+      "deleted": true
     },
     {
       "id": 11,
@@ -575,7 +576,7 @@
       ],
       "rating": 0,
       "id": 32,
-      "deleted": false
+      "deleted": true
     },
     {
       "title": "iphone pro max",
@@ -592,7 +593,9 @@
         "https://i.dummyjson.com/data/products/6/3.png",
         "https://i.dummyjson.com/data/products/6/thumbnail.png"
       ],
-      "id": 33
+      "id": 33,
+      "deleted": true,
+      "rating": 0
     }
   ],
   "brands": [
@@ -767,11 +770,11 @@
         {
           "name": "mangal",
           "email": "test@example.com",
-          "phone": "1234567890",
-          "street": "San fransico",
           "city": "prayagraj",
+          "pinCode": "123456",
           "state": "up",
-          "pinCode": "123456"
+          "street": "San fransico",
+          "phone": "98765432"
         }
       ],
       "role": "user",
@@ -785,7 +788,7 @@
       "id": 2
     }
   ],
-  "cart": [
-  ],
-  "orders": []
+  "cart": [],
+  "orders": [
+  ]
 }

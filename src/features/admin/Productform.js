@@ -13,6 +13,7 @@ import {
 } from "../product-list/product-listSlice";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { useAlert } from "react-alert";
 export default function Productform() {
     const {
         register,
@@ -51,11 +52,12 @@ useEffect(()=>{
     setValue('category', selectProduct.category);
 }
 },[selectProduct,setValue,params.id])
-
+const alert=useAlert();
   const handleDelete=()=>{
     const product={...selectProduct};
     product.deleted=true;
     dispatch(updateProductAsync(product));
+    alert.success('product deleted successfully');
   }
   return (
     <form  noValidate onSubmit={handleSubmit((data)=>{
@@ -328,7 +330,7 @@ useEffect(()=>{
           </div>
         </div>
 
-        <div className="border-b border-gray-900/10 pb-12">
+        {/* <div className="border-b border-gray-900/10 pb-12">
           <h2 className="text-base font-semibold leading-7 text-gray-900">
             Extra
           </h2>
@@ -405,16 +407,16 @@ useEffect(()=>{
               </div>
             </fieldset>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className="mt-6 flex items-center justify-end gap-x-6">
-        <button
+        {/* <button
           type="button"
           className="text-sm font-semibold leading-6 text-gray-900"
         >
           Cancel
-        </button>
+        </button> */}
        {selectProduct && <button
           onClick={handleDelete}
           className="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
