@@ -59,13 +59,14 @@ useEffect(()=>{
   }
   return (
     <form  noValidate onSubmit={handleSubmit((data)=>{
-        console.log(data)
-        const product={...data}
-        product.images=[product.image1,product.image2,product.image3,product.thumbnail]
+      const product={...data}
+      // console.log(product);
+      product.images=[product['image 1'],product['image 2'],product['image 3'],product.thumbnail]
+      console.log(product)
        
-        delete product['image1']
-        delete product['image2']
-        delete product['image3']
+        delete product['image 1']
+        delete product['image 2']
+        delete product['image 3']
         product.price = +product.price;
           product.stock = +product.stock;
           product.discountPercentage = +product.discountPercentage;
@@ -79,8 +80,8 @@ useEffect(()=>{
         dispatch(createProductAsync(product))}
        
          })} >
-      <div className="space-y-12 bg-white">
-        <div className="border-b border-gray-900/10 pb-12">
+      <div className="space-y-12 bg-white px-5">
+        <div className="border-b border-gray-900/10 pb-12 pt-4">
           <h2 className="text-base font-semibold leading-7 text-gray-900">
             Add Product
           </h2>
@@ -278,7 +279,7 @@ useEffect(()=>{
                 {...register('image 1',{
                     required:'image 1 is required'
                   })}
-                id="image 1"
+                id="image1"
                 className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
               />
             </div>
@@ -299,7 +300,7 @@ useEffect(()=>{
                 {...register('image 2',{
                     required:'image 2 is required'
                   })}
-                id="image 2"
+                id="image2"
                 className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
               />
             </div>
@@ -308,7 +309,7 @@ useEffect(()=>{
 
         <div className="sm:col-span-4">
           <label
-            htmlFor="image 3"
+            htmlFor="image3"
             className="block text-sm font-medium leading-6 text-gray-900"
           >
             Image 3

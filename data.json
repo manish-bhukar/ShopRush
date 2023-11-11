@@ -12,14 +12,14 @@
       "category": "smartphones",
       "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
       "images": [
-        null,
-        null,
-        null,
+        "https://i.dummyjson.com/data/products/1/1.jpg",
+        "https://i.dummyjson.com/data/products/1/2.jpg",
+        "https://i.dummyjson.com/data/products/1/3.jpg",
         "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
       ],
-      "image 1": "dfghj",
-      "image 2": "gfh",
-      "image 3": "gh",
+      "image 1": "https://i.dummyjson.com/data/products/1/1.jpg",
+      "image 2": "https://i.dummyjson.com/data/products/1/2.jpg",
+      "image 3": "https://i.dummyjson.com/data/products/1/3.jpg",
       "deleted": true
     },
     {
@@ -106,7 +106,7 @@
         "https://i.dummyjson.com/data/products/6/1.png",
         "https://i.dummyjson.com/data/products/6/2.jpg",
         "https://i.dummyjson.com/data/products/6/3.png",
-        "https://i.dummyjson.com/data/products/6/4.jpg"
+        "https://i.dummyjson.com/data/products/6/thumbnail.png"
       ]
     },
     {
@@ -167,7 +167,7 @@
     },
     {
       "id": 10,
-      "title": "HP Pavilion 15-DK1056WM",
+      "title": "HP Pavilion",
       "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
       "price": 1099,
       "discountPercentage": 6.18,
@@ -556,46 +556,43 @@
       ]
     },
     {
-      "title": "Mac book 123",
-      "description": "Other",
+      "title": "Apple new phone",
+      "description": "Best phone in the world",
       "brand": "Apple",
-      "category": "laptops",
-      "price": "10000",
-      "discountPercentage": "1",
-      "stock": "0",
-      "thumbnail": "product",
-      "image 1": "product",
-      "image 2": "product",
-      "image 3": "product",
+      "category": "smartphones",
+      "price": 33,
+      "discountPercentage": 9,
+      "stock": 7,
+      "thumbnail": "https://i.dummyjson.com/data/products/6/thumbnail.png",
+      "image 1": "https://i.dummyjson.com/data/products/1/1.png",
+      "image 2": "https://i.dummyjson.com/data/products/1/2.png",
+      "image 3": "https://i.dummyjson.com/data/products/1/3.png",
       "images": [
-        null,
-        null,
-        null,
-        "product"
+        "https://i.dummyjson.com/data/products/6/1.png",
+        "https://i.dummyjson.com/data/products/6/2.png",
+        "https://i.dummyjson.com/data/products/6/3.png",
+        "https://i.dummyjson.com/data/products/6/thumbnail.png"
       ],
       "rating": 0,
-      "id": 31
+      "id": 32,
+      "deleted": false
     },
     {
-      "title": "Mac book new ",
-      "description": "very good",
+      "title": "iphone pro max",
+      "description": "Latest iphone ",
       "brand": "Apple",
-      "category": "laptops",
-      "price": 10000,
-      "discountPercentage": 1,
-      "stock": 0,
-      "thumbnail": "later",
-      "image 1": "later",
-      "image 2": "later",
-      "image 3": "later",
+      "category": "smartphones",
+      "price": 44,
+      "discountPercentage": 5,
+      "stock": 9,
+      "thumbnail": "https://i.dummyjson.com/data/products/6/thumbnail.png",
       "images": [
-        null,
-        null,
-        null,
-        "later"
+        "https://i.dummyjson.com/data/products/6/1.png",
+        "https://i.dummyjson.com/data/products/6/2.png",
+        "https://i.dummyjson.com/data/products/6/3.png",
+        "https://i.dummyjson.com/data/products/6/thumbnail.png"
       ],
-      "rating": 0,
-      "id": 32
+      "id": 33
     }
   ],
   "brands": [
@@ -766,7 +763,17 @@
     {
       "email": "test@example.com",
       "password": "Test@123",
-      "addresses": [],
+      "addresses": [
+        {
+          "name": "mangal",
+          "email": "test@example.com",
+          "phone": "1234567890",
+          "street": "San fransico",
+          "city": "prayagraj",
+          "state": "up",
+          "pinCode": "123456"
+        }
+      ],
       "role": "user",
       "id": 1
     },
@@ -778,119 +785,6 @@
       "id": 2
     }
   ],
-  "cart": [
-    {
-      "title": "Samsung Universe 9",
-      "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-      "price": 1249,
-      "discountPercentage": 15.46,
-      "rating": 4.09,
-      "stock": 36,
-      "brand": "Samsung",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/3/1.jpg"
-      ],
-      "quantity": 1,
-      "user": 1,
-      "id": 1
-    },
-    {
-      "title": "OPPOF19",
-      "description": "OPPO F19 is officially announced on April 2021.",
-      "price": 280,
-      "discountPercentage": 17.91,
-      "rating": 4.3,
-      "stock": 123,
-      "brand": "OPPO",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/4/1.jpg",
-        "https://i.dummyjson.com/data/products/4/2.jpg",
-        "https://i.dummyjson.com/data/products/4/3.jpg",
-        "https://i.dummyjson.com/data/products/4/4.jpg",
-        "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
-      ],
-      "quantity": 1,
-      "user": 1,
-      "id": 2
-    },
-    {
-      "title": "Samsung Universe 9",
-      "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-      "price": 1249,
-      "discountPercentage": 15.46,
-      "rating": 4.09,
-      "stock": 36,
-      "brand": "Samsung",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/3/1.jpg"
-      ],
-      "quantity": 1,
-      "user": 1,
-      "id": 3
-    }
-  ],
-  "orders": [
-    {
-      "items": [
-        {
-          "title": "iPhone 9",
-          "description": "An apple mobile which is nothing like apple",
-          "price": 549,
-          "discountPercentage": 12.96,
-          "rating": 4.69,
-          "stock": 94,
-          "brand": "Apple",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/1/1.jpg",
-            "https://i.dummyjson.com/data/products/1/2.jpg",
-            "https://i.dummyjson.com/data/products/1/3.jpg",
-            "https://i.dummyjson.com/data/products/1/4.jpg",
-            "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
-          ],
-          "quantity": 1,
-          "user": 2,
-          "id": 1
-        }
-      ],
-      "totalAmt": 549,
-      "totalItems": 1,
-      "user": {
-        "email": "manish20223142@gmail.com",
-        "password": "Manish@1234",
-        "addresses": [
-          {
-            "name": "manish bhukar",
-            "email": "test@gmail.com",
-            "phone": "123456",
-            "street": "sdfghj",
-            "city": "Prayagraj",
-            "state": "Uttarpradesh",
-            "pinCode": "123456"
-          }
-        ],
-        "role": "user",
-        "id": 2
-      },
-      "paymentmethod": "cash",
-      "selectaddress": {
-        "name": "manish bhukar",
-        "email": "test@gmail.com",
-        "phone": "123456",
-        "street": "sdfghj",
-        "city": "Prayagraj",
-        "state": "Uttarpradesh",
-        "pinCode": "123456"
-      },
-      "status": "pending",
-      "id": 1
-    }
-  ]
+  "cart": [],
+  "orders": []
 }

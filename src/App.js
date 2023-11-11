@@ -30,7 +30,6 @@ import AdminHome from './Pages/AdminHome';
 import AdminProductDetailPage from './Pages/adminProductDetail';
 import Productform from './features/admin/Productform';
 import AdminProductFormpage from './Pages/AdminProductFormpage';
-
 const router = createBrowserRouter([
   {
     path: "/",
