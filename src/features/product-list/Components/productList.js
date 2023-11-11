@@ -512,6 +512,8 @@ function ProductGrid({ products }) {
                           {product.color}
                         </p>
                       </div>
+                      {product.deleted&&   <div className="mt-5  text-sm text-red-400"><p>product deleted</p></div>}
+                   
                       <p className="text-sm font-medium text-gray-900">
                         ${product.price}
                       </p>

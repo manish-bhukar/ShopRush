@@ -22,6 +22,36 @@ export function fetchProductById(id){
     }
     );
 }
+
+
+export function createProduct(product){
+  return new Promise(async (resolve, reject) => {
+      try {
+          const response = await fetch('http://localhost:8080/products/',{
+            method:'POST',
+            body:JSON.stringify(product),
+            headers:{'content-type':'application/json'}
+          });
+          const data = await response.json();
+          resolve({data});
+      } catch (error) {
+          reject(error);
+      }
+  }
+  );
+}
+export function updateProduct(update) {
+  return new Promise(async (resolve) => {
+    const response = await fetch("http://localhost:8080/products/"+update.id, {
+      method: "PATCH",
+      body: JSON.stringify(update),
+      headers: { "content-type": "application/json" },
+    });
+    const data = await response.json();
+    resolve({ data });
+  });
+}
+
 export function fetchProductsByFilters(filter,sort,pagination){
     let query = '';
     for(let key in filter){
