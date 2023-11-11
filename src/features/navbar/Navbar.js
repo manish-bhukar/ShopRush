@@ -8,8 +8,6 @@ import { selectloggedInUser } from '../Auth/authSlice'
 
 
 const navigation = [
-  { name: 'Dashboard',link: '#', current: true ,user:true},
-  {name:'Team',link:'#',current:true,user:true},
   { name: 'Admin', link: '/admin',admin:true },
 ]
 const userNavigation = [
