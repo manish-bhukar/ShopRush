@@ -54,6 +54,7 @@ useEffect(() => {
                         className="mr-2 text-sm font-medium text-gray-900"
                       >
                         {breadcrumb.name}
+                      
                       </a>
                       <svg
                         width={16}

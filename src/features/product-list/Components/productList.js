@@ -28,14 +28,6 @@ const sortOptions = [
   { name: "Price: Low to High", sort: "price", order: "asc", current: false },
   { name: "Price: High to Low", sort: "price", order: "desc", current: false },
 ];
-const subCategories = [
-  { name: "Totes", href: "#" },
-  { name: "Backpacks", href: "#" },
-  { name: "Travel Bags", href: "#" },
-  { name: "Hip Bags", href: "#" },
-  { name: "Laptop Sleeves", href: "#" },
-];
-
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -263,18 +255,7 @@ function MobileFilter({
                 {/* Filters */}
                 <form className="mt-4 border-t border-gray-200">
                   <h3 className="sr-only">Categories</h3>
-                  <ul
-                    role="list"
-                    className="px-2 py-3 font-medium text-gray-900"
-                  >
-                    {subCategories.map((category) => (
-                      <li key={category.name}>
-                        <a href={category.href} className="block px-2 py-3">
-                          {category.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
+                 
 
                   {filters.map((section) => (
                     <Disclosure
@@ -494,7 +475,7 @@ function ProductGrid({ products }) {
                       <img
                         src={product.thumbnail}
                         alt={product.imageAlt}
-                        className="h-60 w-60 object-cover object-center lg:h-full lg:w-full"
+                        className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                       />
                     </div>
                     <div className="mt-4 flex justify-between">
@@ -512,6 +493,8 @@ function ProductGrid({ products }) {
                           {product.color}
                         </p>
                       </div>
+                      {product.deleted&&   <div className="mt-5  text-sm text-red-400"><p>product deleted</p></div>}
+                   
                       <p className="text-sm font-medium text-gray-900">
                         ${product.price}
                       </p>
