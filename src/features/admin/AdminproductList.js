@@ -10,7 +10,7 @@ import {
   selectCategories,
   selecttotalItems,
 } from "../product-list/product-listSlice";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
+import { ChevronLeftIcon, ChevronRightIcon, StarIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import { Fragment } from "react";
 import { ITEMS_PER_PAGE } from "../../app/constants";
@@ -473,7 +473,7 @@ function ProductGrid({ products }) {
       </div>
       <div className="bg-white">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-0 sm:py-0 lg:max-w-7xl lg:px-8">
-          <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+          <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
             {products &&
               products.map((product) => (
                 <div>
@@ -501,12 +501,18 @@ function ProductGrid({ products }) {
                             </a>
                           </h3>
                           <p className="mt-1 text-sm text-gray-500">
-                            {product.color}
+                            <StarIcon className="h-5 w-5 inline bg-yellow-400"></StarIcon>
+                           <span className="align-bottom">{product.rating}</span> 
                           </p>
                         </div>
-                        <p className="text-sm font-medium text-gray-900">
-                          ${product.price}
-                        </p>
+                        <div>
+                      <p className="text-sm font-medium text-gray-900">
+                        ${Math.round(product.price*(1-product.discountPercentage/100))}
+                      </p>
+                      <p className="text-sm line-through font-medium text-gray-900">
+                        ${product.price}
+                      </p>
+                      </div>
                      {product.deleted&&   <div className="mt-5  text-sm text-red-400"><p>product deleted</p></div>}
                       </div>
                     </div>

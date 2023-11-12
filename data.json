@@ -790,5 +790,177 @@
   ],
   "cart": [],
   "orders": [
+    {
+      "items": [
+        {
+          "title": "iPhone X",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 899,
+          "discountPercentage": 17.94,
+          "rating": 4.44,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/2/1.jpg",
+            "https://i.dummyjson.com/data/products/2/2.jpg",
+            "https://i.dummyjson.com/data/products/2/3.jpg",
+            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+          ],
+          "productId": 2,
+          "quantity": 1,
+          "user": 2,
+          "id": 1
+        }
+      ],
+      "totalAmt": 899,
+      "totalItems": 1,
+      "user": {
+        "email": "manish20223142@gmail.com",
+        "password": "Manish@1234",
+        "addresses": [],
+        "role": "admin",
+        "id": 2
+      },
+      "paymentmethod": "cash",
+      "selectaddress": null,
+      "status": "pending",
+      "id": 1
+    },
+    {
+      "items": [
+        {
+          "title": "Huawei P30",
+          "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+          "price": 499,
+          "discountPercentage": 10.58,
+          "rating": 4.09,
+          "stock": 32,
+          "brand": "Huawei",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/5/1.jpg",
+            "https://i.dummyjson.com/data/products/5/2.jpg",
+            "https://i.dummyjson.com/data/products/5/3.jpg"
+          ],
+          "productId": 5,
+          "quantity": 1,
+          "user": 1,
+          "id": 2
+        }
+      ],
+      "totalAmt": 499,
+      "totalItems": 1,
+      "user": {
+        "email": "test@example.com",
+        "password": "Test@123",
+        "addresses": [
+          {
+            "name": "mangal",
+            "email": "test@example.com",
+            "city": "prayagraj",
+            "pinCode": "123456",
+            "state": "up",
+            "street": "San fransico",
+            "phone": "98765432"
+          }
+        ],
+        "role": "user",
+        "id": 1
+      },
+      "paymentmethod": "cash",
+      "selectaddress": null,
+      "status": "pending",
+      "id": 2
+    },
+    {
+      "items": [
+        {
+          "title": "OPPOF19",
+          "description": "OPPO F19 is officially announced on April 2021.",
+          "price": 280,
+          "discountPercentage": 17.91,
+          "rating": 4.3,
+          "stock": 123,
+          "brand": "OPPO",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/4/1.jpg",
+            "https://i.dummyjson.com/data/products/4/2.jpg",
+            "https://i.dummyjson.com/data/products/4/3.jpg",
+            "https://i.dummyjson.com/data/products/4/4.jpg",
+            "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
+          ],
+          "productId": 4,
+          "quantity": 1,
+          "user": 2,
+          "id": 5
+        }
+      ],
+      "totalAmt": 280,
+      "totalItems": 1,
+      "user": {
+        "email": "manish20223142@gmail.com",
+        "password": "Manish@1234",
+        "addresses": [],
+        "role": "admin",
+        "id": 2
+      },
+      "paymentmethod": "cash",
+      "selectaddress": null,
+      "status": "pending",
+      "id": 3
+    },
+    {
+      "items": [
+        {
+          "title": "iPhone X",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 899,
+          "discountPercentage": 17.94,
+          "rating": 4.44,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/2/1.jpg",
+            "https://i.dummyjson.com/data/products/2/2.jpg",
+            "https://i.dummyjson.com/data/products/2/3.jpg",
+            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+          ],
+          "productId": 2,
+          "quantity": 1,
+          "user": 1,
+          "id": 4
+        }
+      ],
+      "totalAmt": 899,
+      "totalItems": 1,
+      "user": {
+        "email": "test@example.com",
+        "password": "Test@123",
+        "addresses": [
+          {
+            "name": "mangal",
+            "email": "test@example.com",
+            "city": "prayagraj",
+            "pinCode": "123456",
+            "state": "up",
+            "street": "San fransico",
+            "phone": "98765432"
+          }
+        ],
+        "role": "user",
+        "id": 1
+      },
+      "paymentmethod": "cash",
+      "selectaddress": null,
+      "status": "pending",
+      "id": 4
+    }
   ]
 }
