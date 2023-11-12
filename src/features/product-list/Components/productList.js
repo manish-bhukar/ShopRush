@@ -10,7 +10,7 @@ import {
   selectCategories,
   selecttotalItems,
 } from "../product-listSlice";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
+import { ChevronLeftIcon, ChevronRightIcon,StarIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import { Fragment } from "react";
 import { ITEMS_PER_PAGE } from "../../../app/constants";
@@ -308,6 +308,9 @@ function MobileFilter({
                                     type="checkbox"
                                     defaultChecked={option.checked}
                                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                    onChange={(e) => {
+                                      handleFilter(e, section, option);
+                                    }}
                                   />
                                   <label
                                     htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
@@ -472,7 +475,7 @@ function ProductGrid({ products,status }) {
       {/* This is product list */}
       <div className="bg-white">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-0 sm:py-0 lg:max-w-7xl lg:px-8">
-          <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+          <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
             {status === "loading" ? (
               <RotatingLines
                 strokeColor="grey"
@@ -508,65 +511,24 @@ function ProductGrid({ products,status }) {
                           </a>
                         </h3>
                         <p className="mt-1 text-sm text-gray-500">
-                          {product.color}
-                        </p>
-                        {product.deleted && (
-                          <div className="mt-5  text-sm text-red-400">
-                            <p>product deleted</p>
-                          </div>
-                        )}
+                            <StarIcon className="h-5 w-5 inline bg-yellow-400"></StarIcon>
+                           <span className="align-bottom">{product.rating}</span> 
+                          </p>
+                     
                       </div>
-
+                      <div>
                       <p className="text-sm font-medium text-gray-900">
+                        ${Math.round(product.price*(1-product.discountPercentage/100))}
+                      </p>
+                      <p className="text-sm line-through font-medium text-gray-900">
                         ${product.price}
                       </p>
+                      </div>
                     </div>
                   </div>
                 </Link>
               ))}
-            {/* 
-            {products &&
-              products.map(
-                (product) =>
-                  // Add a condition to check if the product is not deleted
-                  !product.deleted && (
-                    <Link to={`/product-detail/${product.id}`} key={product.id}>
-                      <div className="group relative border-solid border-2 p-1">
-                        <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                          <img
-                            src={product.thumbnail}
-                            alt={product.imageAlt}
-                            className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                          />
-                        </div>
-                        <div className="mt-4 flex justify-between">
-                          <div>
-                            <h3 className="text-sm text-gray-700">
-                              <a href={product.href}>
-                                <span
-                                  aria-hidden="true"
-                                  className="absolute inset-0"
-                                />
-                                {product.title}
-                              </a>
-                            </h3>
-                            <p className="mt-1 text-sm text-gray-500">
-                              {product.color}
-                            </p>
-                          </div>
-                          {product.deleted && (
-                            <div className="mt-5 text-sm text-red-400">
-                              <p>Product deleted</p>
-                            </div>
-                          )}
-                          <p className="text-sm font-medium text-gray-900">
-                            ${product.price}
-                          </p>
-                        </div>
-                      </div>
-                    </Link>
-                  )
-              )} */}
+
           </div>
         </div>
       </div>

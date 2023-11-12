@@ -82,11 +82,7 @@ export default function UserOrders() {
                 </p>
                 <div className="flex justify-between gap-x-6 px-5 py-5 border-solid border-2 border-gray-200">
                   <div className="flex gap-x-4">
-                    <div className="min-w-0 flex-auto">
-                      {/* <p className="text-sm font-semibold leading-6 text-gray-900">
-                          {order.selectaddress.name}
-                        </p> */}
-
+                    <div className="min-w-0 flex-auto">                    
                       {order.selectaddress ? (
                         <p className="text-sm font-semibold leading-6 text-gray-900">
                           {order.selectaddress.name}
@@ -97,7 +93,7 @@ export default function UserOrders() {
                       <p className="mt-1 truncate text-xs leading-5 text-gray-500">
                         {order.selectaddress.street}
                       </p>
-                      <p className="mt-1 truncate text-xs leading-5 text-gray-500">
+                       <p className="mt-1 truncate text-xs leading-5 text-gray-500">
                         {order.selectaddress.pinCode}
                       </p>
                     </div>
