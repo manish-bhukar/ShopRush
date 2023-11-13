@@ -70,14 +70,14 @@ export default function ProductList() {
       );
       newFilter[section.id].splice(index, 1);
     }
-    console.log(newFilter);
+    // console.log(newFilter);
     setFilter(newFilter);
     //  dispatch(fetchProductsByFiltersAsync(newFilter))
   };
 
   const handleSort = (e, option) => {
     const sort = { _sort: option.sort, _order: option.order };
-    console.log({ sort });
+    // console.log({ sort });
     setSort(sort);
   };
   const handlePage=(page)=>{

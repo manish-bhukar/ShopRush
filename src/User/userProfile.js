@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { set, useForm } from "react-hook-form";
-// import { selectUserInfo } from './userSlice';
+import { useForm } from "react-hook-form";
 import { selectloggedInUser } from '../features/Auth/authSlice';
 import { updateUserAsync } from './userSlice';
 export default function UserProfile() {
@@ -15,7 +14,7 @@ export default function UserProfile() {
   const [selectedEditIndex, setSelectedEditIndex] = useState(-1);
   const dispatch = useDispatch();
   const user=useSelector(selectloggedInUser);
-   console.log(user);
+  //  console.log(user);
 
    const handleEdit=(addressUpdate,index)=>{
    const newUser = { ...user, addresses: [...user.addresses] };
@@ -64,7 +63,7 @@ export default function UserProfile() {
                   className="bg-white px-5"
                   noValidate
                   onSubmit={handleSubmit((data) => {
-                    console.log(data);
+                    // console.log(data);
                      handleEdit(data,index)
                     reset();
                   })}

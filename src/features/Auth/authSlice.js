@@ -89,6 +89,5 @@ export const counterSlice = createSlice({
 export const { increment, incrementByAmount } = counterSlice.actions;
 export const selectloggedInUser=(state)=>state.auth.loggedInUser;
 export const selectError=(state)=>state.auth.error;
-
 export const selectCount = (state) => state.counter.value;
 export default counterSlice.reducer;

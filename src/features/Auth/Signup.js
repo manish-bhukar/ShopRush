@@ -75,7 +75,7 @@ export default function Signup(){
                     role: "user",
                   })
                 );
-                console.log(data);
+                // console.log(data);
               })}
             >
               <div>

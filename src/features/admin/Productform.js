@@ -64,7 +64,7 @@ const alert=useAlert();
       const product={...data}
       // console.log(product);
       product.images=[product['image 1'],product['image 2'],product['image 3'],product.thumbnail]
-      console.log(product)
+      // console.log(product)
        
         delete product['image 1']
         delete product['image 2']

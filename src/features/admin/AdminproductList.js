@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   fetchAllCategoriesAsync,
-  fetchAllProductsAsync,
   fetchBrandsAsync,
   fetchProductsByFiltersAsync,
   selectAllProducts,
@@ -68,14 +67,14 @@ export default function AdminProductList() {
       );
       newFilter[section.id].splice(index, 1);
     }
-    console.log(newFilter);
+    // console.log(newFilter);
     setFilter(newFilter);
     //  dispatch(fetchProductsByFiltersAsync(newFilter))
   };
 
   const handleSort = (e, option) => {
     const sort = { _sort: option.sort, _order: option.order };
-    console.log({ sort });
+    // console.log({ sort });
     setSort(sort);
   };
   const handlePage = (page) => {

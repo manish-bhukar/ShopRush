@@ -790,5 +790,61 @@
   ],
   "cart": [],
   "orders": [
+    {
+      "items": [
+        {
+          "title": "iPhone X Max",
+          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+          "price": 899,
+          "discountPercentage": 17.94,
+          "rating": 4.44,
+          "stock": 34,
+          "brand": "Apple",
+          "category": "smartphones",
+          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/2/1.jpg",
+            "https://i.dummyjson.com/data/products/2/2.jpg",
+            "https://i.dummyjson.com/data/products/2/3.jpg",
+            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+          ],
+          "productId": 2,
+          "quantity": 1,
+          "user": 1,
+          "id": 1
+        }
+      ],
+      "totalAmt": 899,
+      "totalItems": 1,
+      "user": {
+        "email": "test@example.com",
+        "password": "Test@123",
+        "addresses": [
+          {
+            "name": "mangal gupta",
+            "email": "test@example.com",
+            "city": "prayagraj",
+            "pinCode": "123456",
+            "state": "up",
+            "street": "San fransico",
+            "phone": "98765432"
+          }
+        ],
+        "role": "user",
+        "id": 1
+      },
+      "paymentmethod": "card",
+      "selectaddress": {
+        "name": "mangal gupta",
+        "email": "test@example.com",
+        "city": "prayagraj",
+        "pinCode": "123456",
+        "state": "up",
+        "street": "San fransico",
+        "phone": "98765432"
+      },
+      "status": "pending",
+      "id": 1
+    }
   ]
 }
