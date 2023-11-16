@@ -11,11 +11,11 @@ export default function Cart(){
   const dispatch=useDispatch();
   const [open, setOpen] = useState(true);
   const items=useSelector(selectItems);
-  const totalAmt=items.reduce((total,item)=>total+item.price*item.quantity,0);
+  const totalAmt=items.reduce((total,item)=>total+item.product.price*item.quantity,0);
   const totalItems=items.reduce((total,item)=>total+item.quantity,0);
 
   const handleQuantity=(e,item)=>{
-    dispatch(updateItemsAsync({...item,quantity:+e.target.value}))
+    dispatch(updateItemsAsync({id:item.id,quantity:+e.target.value}))
   }
   const handleRemove=(e,id)=>{
     dispatch(deleteItemsAsync(id)) 
@@ -35,8 +35,8 @@ export default function Cart(){
                   <li key={item.id} className="flex py-6">
                     <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                       <img
-                        src={item.thumbnail}
-                        alt={item.title}
+                        src={item.product.thumbnail}
+                        alt={item.product.title}
                         className="h-full w-full object-cover object-center"
                       />
                     </div>
@@ -45,12 +45,12 @@ export default function Cart(){
                       <div>
                         <div className="flex justify-between text-base font-medium text-gray-900">
                           <h3>
-                            <a href={item.href}>{item.title}</a>
+                            <a href={item.product.id}>{item.product.title}</a>
                           </h3>
-                          <p className="ml-4">${item.price}</p>
+                          <p className="ml-4">${item.product.price}</p>
                         </div>
                         <p className="mt-1 text-sm text-gray-500">
-                          {item.brand}
+                          {item.product.brand}
                         </p>
                       </div>
                       <div className="flex flex-1 items-end justify-between text-sm">
