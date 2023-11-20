@@ -6,7 +6,7 @@ export default function UserOrders() {
   const dispatch = useDispatch();
   const user = useSelector(selectloggedInUser);
   const orders = useSelector(selectUserOrders);
-  console.log('user orders', orders); 
+  console.log('orders', orders); 
   // console.log('user', user);
   useEffect(() => {
     dispatch(fetchLoggedInUserOrderAsync(user.id));
@@ -14,7 +14,7 @@ export default function UserOrders() {
 
   return (
     <div>
-      {orders.map((order) => (
+      {orders && orders.map((order) => (
         <div>
           <div>
             <div className="mx-auto mt-12 bg-white max-w-7xl px-4 sm:px-6 lg:px-8">
