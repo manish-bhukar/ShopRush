@@ -6,7 +6,6 @@ import { fetchAllProductsByIdAsync, selectedProductById } from "../product-listS
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCartAsync, selectItems } from "../../cart/cartSlice";
-import {selectloggedInUser} from '../../Auth/authSlice';
 import { useAlert } from "react-alert";
 
   const highlights = [
@@ -26,12 +25,11 @@ export default function ProductDetail() {
 const product=useSelector(selectedProductById);
 const dispatch=useDispatch();
 const params=useParams();
-const user=useSelector(selectloggedInUser);
 const items=useSelector(selectItems);
 const handleCart = (e) => {
   e.preventDefault();
   if(items.findIndex(item=>item.product.id===product.id)<0){
- const newItem = {product:product.id, quantity: 1, user: user.id 
+ const newItem = {product:product.id, quantity: 1
 };
  dispatch(addToCartAsync(newItem));
   alert.success("Added to Cart!");

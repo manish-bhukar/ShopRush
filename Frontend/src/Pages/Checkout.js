@@ -1,6 +1,4 @@
-import { Fragment, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deleteItemsAsync } from "../features/cart/cartSlice";
@@ -9,15 +7,12 @@ import { useSelector } from "react-redux";
 import { selectItems } from "../features/cart/cartSlice";
 import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import {
-  selectloggedInUser,
-  updateUserAsync,
-} from "../features/Auth/authSlice";
+import { updateUserAsync } from "../User/userSlice";
 import {
   createOrderAsync,
   selectCurrentOrder,
 } from "../features/Order/orderSlice";
-
+import { selectUserInfo } from "../User/userSlice";
 function Checkout() {
   const dispatch = useDispatch();
   const {
@@ -26,7 +21,7 @@ function Checkout() {
     reset,
     formState: { errors },
   } = useForm();
-  const user = useSelector(selectloggedInUser);
+  const user =useSelector(selectUserInfo);
   const currentorder = useSelector(selectCurrentOrder);
   const [open, setOpen] = useState(true);
   const items = useSelector(selectItems);
@@ -52,17 +47,22 @@ function Checkout() {
     setPaymentmethod(e.target.value);
   };
   const handleOrder = (e) => {
-    const order = {
-      items,
-      totalAmt,
-      totalItems,
-      user: user.id,
-      paymentmethod,
-      selectaddress,
-      status: "pending",
-    };
-    dispatch(createOrderAsync(order));
-  };
+    if (selectaddress && paymentmethod) {
+      const order = {
+        items,
+        totalAmt,
+        totalItems,
+        user: user.id,
+        paymentmethod,
+        selectaddress,
+        status: "pending",
+      };
+      dispatch(createOrderAsync(order));
+    }else{
+      alert('Enter Address and Payment method');
+    }
+  }
+   
   return (
     <>
       {!items.length && <Navigate to="/" replace={true}></Navigate>}

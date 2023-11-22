@@ -4,7 +4,6 @@ const { sanitizeUser } = require("../services/common");
 const SECRET_KEY="SECRET_KEY";
 const jwt=require('jsonwebtoken');
 exports.createUser = async (req, res) => {
-  const user = new User(req.body);
   try {
     const salt = crypto.randomBytes(16);
   crypto.pbkdf2(req.body.password, salt, 310000, 32, 'sha256',async function(err, hashedPassword){
@@ -16,7 +15,10 @@ exports.createUser = async (req, res) => {
       }
       else{
           const token = jwt.sign(sanitizeUser(response), SECRET_KEY);
-        res.status(201).json(token);
+          res.cookie("jwt", token, {
+            expires: new Date(Date.now() + 3600000),
+            httpOnly: true,
+          }).status(201).json({id:response.id,role:response.role});
       }
     });
     
@@ -27,7 +29,14 @@ exports.createUser = async (req, res) => {
 };
 
 exports.loginUser=async(req,res)=>{
-   res.json(req.user);
+   const user=req.user;
+  res
+    .cookie("jwt", user.token, {
+      expires: new Date(Date.now() + 3600000),
+      httpOnly: true,
+    })
+    .status(201)
+    .json({id:user.id,role:user.role});
 }
 
 exports.checkUser=async(req,res)=>{
