@@ -28,10 +28,10 @@ import Logout from './features/Auth/Logout';
 import ForgotPassword from './features/Auth/ForgotPassword';
 import AdminHome from './Pages/AdminHome';
 import AdminProductDetailPage from './Pages/adminProductDetail';
-import Productform from './features/admin/Productform';
 import AdminProductFormpage from './Pages/AdminProductFormpage';
 import { positions, Provider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
+import { selectloggedInUser } from './features/Auth/authSlice';
 const options = {
   position: positions.BOTTOM_LEFT,
   timeout: 5000,
@@ -153,11 +153,12 @@ const router = createBrowserRouter([
 ]);
 function App() {
   const dispatch = useDispatch();
-  const user=useSelector(selectUserInfo);
+  const user=useSelector(selectloggedInUser);
+  // console.log('user is '+user);
   useEffect(()=>{
     if(user){
- dispatch(fetchItemsByUserIdAsync(user.id))
-   dispatch(fetchLoggedInUserAsync(user.id))
+ dispatch(fetchItemsByUserIdAsync())
+   dispatch(fetchLoggedInUserAsync())
     }
    
   },[dispatch,user]

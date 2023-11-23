@@ -5,18 +5,25 @@ exports.createProduct=async(req,res)=>{
    
      try {
          const response = await product.save();
-         res.status(200).json(response);
+         res.status(201).json(response);
      } catch (error) {
         res.status(400).json(error);
      }
 }
 exports.fetchAllProducts=async(req,res)=>{
-
-   let query=Product.find({deleted:{$ne:true}});
-    let totalProductsQuery = Product.find({ deleted: { $ne: true } });
+     let condition={};
+     if(!req.query.admin){
+        condition.deleted={$ne:true}
+     }
+   let query=Product.find(condition);
+    let totalProductsQuery = Product.find(condition);
     if(req.query.category){
-        query= query.find({category:req.query.category});
-        totalProductsQuery= totalProductsQuery.find({ category: req.query.category });
+        // query= query.find({category:req.query.category});
+        query = query.find({
+          category: { $in: req.query.category.split(",") },
+        });
+        totalProductsQuery= totalProductsQuery.find({category: {$in:req.query.category.split(',')},
+    });
     }
     if(req.query.brand){
         query= query.find({brand:req.query.brand});

@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchLoggedInUserOrderAsync, selectUserInfo, selectUserOrders } from './userSlice';
-import { selectloggedInUser } from '../features/Auth/authSlice';
+import { fetchLoggedInUserOrderAsync, selectUserOrders } from './userSlice';
+import { selectUserInfoStatus } from './userSlice';
 export default function UserOrders() {
   const dispatch = useDispatch();
-  const user = useSelector(selectloggedInUser);
   const orders = useSelector(selectUserOrders);
-  console.log('user orders', orders); 
+  const status=useSelector(selectUserInfoStatus);
+  console.log('orders', orders); 
   // console.log('user', user);
   useEffect(() => {
-    dispatch(fetchLoggedInUserOrderAsync(user.id));
-  }, []);
+    dispatch(fetchLoggedInUserOrderAsync());
+  }, [dispatch]);
 
   return (
     <div>
-      {orders.map((order) => (
+      {orders && orders.map((order) => (
         <div>
           <div>
             <div className="mx-auto mt-12 bg-white max-w-7xl px-4 sm:px-6 lg:px-8">

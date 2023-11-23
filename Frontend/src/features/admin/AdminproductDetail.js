@@ -5,7 +5,6 @@ import { fetchAllProductsByIdAsync, selectedProductById } from "../product-list/
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCartAsync } from "../cart/cartSlice";
-import {selectloggedInUser} from '../Auth/authSlice';
   const highlights = [
     "Only the best materials",
     "Ethically and locally made",
@@ -23,10 +22,9 @@ export default function AdminProductDetail() {
 const product=useSelector(selectedProductById);
 const dispatch=useDispatch();
 const params=useParams();
-const user=useSelector(selectloggedInUser);
 const handleCart = (e) => {
   e.preventDefault();
-  const newItem={ ...product, quantity: 1, user: user.id };
+  const newItem={ ...product, quantity: 1};
   delete newItem['id'];
   dispatch(addToCartAsync(newItem));
 };
