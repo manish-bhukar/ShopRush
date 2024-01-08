@@ -20,6 +20,7 @@ import CartPage from './Pages/CartPage';
 import Protected from './features/Auth/Protected';
 import { fetchItemsByUserIdAsync } from './features/cart/cartSlice';
 import PageNotFound from './Pages/404';
+import StripeCheckout from './Pages/StripeCheckout';
 import OrderSucessPage from './Pages/OrderSuccessPage';
 import UserOrdersPage from './Pages/UserOrderspage';
 import UserProfilePage from './Pages/UserProfile';
@@ -90,6 +91,14 @@ const router = createBrowserRouter([
     element: (
       <Protected>
         <AdminProductFormpage></AdminProductFormpage>
+      </Protected>
+    ),
+  },
+  {
+    path: "/stripe-checkout/",
+    element: (
+      <Protected>
+        <StripeCheckout></StripeCheckout>
       </Protected>
     ),
   },
