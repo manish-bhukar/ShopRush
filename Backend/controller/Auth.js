@@ -8,7 +8,7 @@ exports.createUser = async (req, res) => {
     const salt = crypto.randomBytes(16);
   crypto.pbkdf2(req.body.password, salt, 310000, 32, 'sha256',async function(err, hashedPassword){
     const user=new User({...req.body,password:hashedPassword,salt});
-    const response = await user.save();
+    const doc = await user.save();
     req.login(sanitizeUser(response),(err)=>{
       if(err){
         res.status(400).json(err);
@@ -18,7 +18,7 @@ exports.createUser = async (req, res) => {
           res.cookie("jwt", token, {
             expires: new Date(Date.now() + 3600000),
             httpOnly: true,
-          }).status(201).json({id:response.id,role:response.role});
+          }).status(201).json({id:doc.id,role:doc.role});
       }
     });
     
@@ -40,5 +40,10 @@ exports.loginUser=async(req,res)=>{
 }
 
 exports.checkUser=async(req,res)=>{
-   res.json({status:'success',user:req.user});
+  if(req.user){
+    res.json(req.user);
+  }
+  else{
+    res.sendStatus(401);
+  }
 }

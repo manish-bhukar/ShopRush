@@ -31,7 +31,7 @@ import AdminProductDetailPage from './Pages/adminProductDetail';
 import AdminProductFormpage from './Pages/AdminProductFormpage';
 import { positions, Provider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
-import { selectloggedInUser } from './features/Auth/authSlice';
+import { checkAuthAsync, selectUserChecked, selectloggedInUser } from './features/Auth/authSlice';
 const options = {
   position: positions.BOTTOM_LEFT,
   timeout: 5000,
@@ -154,7 +154,10 @@ const router = createBrowserRouter([
 function App() {
   const dispatch = useDispatch();
   const user=useSelector(selectloggedInUser);
-  // console.log('user is '+user);
+  const userChecked=useSelector(selectUserChecked);
+  useEffect(()=>{
+    dispatch(checkAuthAsync());
+  },[])
   useEffect(()=>{
     if(user){
  dispatch(fetchItemsByUserIdAsync())
@@ -165,9 +168,10 @@ function App() {
   )
   return (
     <div className="App">
+      {userChecked&&
       <Provider template={AlertTemplate} {...options}>
         <RouterProvider router={router} />
-      </Provider>
+      </Provider>}
     </div>
   );
 }
