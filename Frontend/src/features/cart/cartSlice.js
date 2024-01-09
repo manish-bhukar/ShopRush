@@ -4,6 +4,7 @@ import { addToCart,fetchItemsByUserId, updateCart,deleteCartItem,resetCart } fro
 const initialState = {
   status: 'idle',
   items:[],
+  cartLoaded:false
 };
 export const addToCartAsync = createAsyncThunk(
   'cart/addToCart',
@@ -68,6 +69,12 @@ export const counterSlice = createSlice({
       .addCase(fetchItemsByUserIdAsync.fulfilled, (state, action) => {
         state.status = 'idle';
         state.items=action.payload;
+        state.cartLoaded=true
+      })
+      .addCase(fetchItemsByUserIdAsync.rejected, (state, action) => {
+        state.status = 'idle';
+        state.items=action.payload;
+        state.cartLoaded=true
       })
       .addCase(updateItemsAsync.pending, (state) => {
         state.status = 'loading';
@@ -99,4 +106,5 @@ export const counterSlice = createSlice({
 export const { increment, incrementByAmount } = counterSlice.actions;
 
 export const selectItems = (state) => state.cart.items;
+export const selectCartLoaded=(state)=>state.cart.cartLoaded;
 export default counterSlice.reducer;

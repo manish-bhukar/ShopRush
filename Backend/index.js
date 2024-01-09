@@ -69,7 +69,7 @@ passport.use('local',
                    return done(null, false, { message: "invalid credentials" });
                   }
                   const token=jwt.sign(sanitizeUser(user),SECRET_KEY);
-                    done(null,{token});
+                    done(null,{id:user.id,role:user.role});
                    
           })
 
@@ -112,6 +112,31 @@ passport.deserializeUser(function (user, cb) {
     return cb(null, user);
   });
 });
+const stripe = require("stripe")('sk_test_51OFuUMSC1tgHClIzioK2h7TFJHAPGrdh0VkYTrm714jGoJndO2b91JD4DUszsg2xm6zkOL53oq3cKE4vX36nJ89500KGbWS8S6');
+
+app.use(express.static("public"));
+app.use(express.json());
+
+
+
+app.post("/create-payment-intent", async (req, res) => {
+  const {totalAmt } = req.body;
+
+  // Create a PaymentIntent with the order amount and currency
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: totalAmt*100,
+    currency: "inr",
+    // In the latest version of the API, specifying the `automatic_payment_methods` parameter is optional because Stripe enables its functionality by default.
+    automatic_payment_methods: {
+      enabled: true,
+    },
+  });
+
+  res.send({
+    clientSecret: paymentIntent.client_secret,
+  });
+});
+
 
 main().catch(err => console.log(err));
   async function main(){

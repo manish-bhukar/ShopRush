@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchLoggedInUserOrderAsync, selectUserOrders } from './userSlice';
 import { selectUserInfoStatus } from './userSlice';
+import { Grid } from 'react-loader-spinner';
 export default function UserOrders() {
   const dispatch = useDispatch();
   const orders = useSelector(selectUserOrders);
@@ -112,6 +113,19 @@ export default function UserOrders() {
           </div>
         </div>
       ))}
+       {status=='loading'?(
+        <Grid
+        height="80"
+        width="80"
+        color="rgb(79,70,229)"
+        ariaLabel="grid-loading"
+        radius="12.5"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+        />
+
+      ):null}
     </div>
   );
 }
