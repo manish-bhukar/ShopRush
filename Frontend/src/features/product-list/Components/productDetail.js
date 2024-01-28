@@ -1,5 +1,6 @@
 import { useState,useEffect } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
+import { Grid } from 'react-loader-spinner';
 import { RadioGroup } from "@headlessui/react";
 import { useSelector } from "react-redux";
 import { fetchAllProductsByIdAsync, selectedProductById } from "../product-listSlice";
@@ -7,6 +8,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCartAsync, selectItems } from "../../cart/cartSlice";
 import { useAlert } from "react-alert";
+import { selectUserInfoStatus } from "../../../User/userSlice";
 
   const highlights = [
     "Only the best materials",
@@ -42,10 +44,23 @@ const handleCart = (e) => {
 useEffect(() => {
   dispatch(fetchAllProductsByIdAsync(params.id));
 },[dispatch,params.id])
-
+const status=useSelector(selectUserInfoStatus);
  const alert = useAlert();
   return (
     <div className="bg-white">
+      {status=='loading'?(
+        <Grid
+        height="80"
+        width="80"
+        color="rgb(79,70,229)"
+        ariaLabel="grid-loading"
+        radius="12.5"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+        />
+
+      ):null}
       {product && (
         <div className="pt-6">
           <nav aria-label="Breadcrumb">

@@ -20,6 +20,7 @@ import CartPage from './Pages/CartPage';
 import Protected from './features/Auth/Protected';
 import { fetchItemsByUserIdAsync } from './features/cart/cartSlice';
 import PageNotFound from './Pages/404';
+import StripeCheckout from './Pages/StripeCheckout';
 import OrderSucessPage from './Pages/OrderSuccessPage';
 import UserOrdersPage from './Pages/UserOrderspage';
 import UserProfilePage from './Pages/UserProfile';
@@ -31,7 +32,8 @@ import AdminProductDetailPage from './Pages/adminProductDetail';
 import AdminProductFormpage from './Pages/AdminProductFormpage';
 import { positions, Provider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
-import { selectloggedInUser } from './features/Auth/authSlice';
+import { checkAuthAsync, selectUserChecked, selectloggedInUser } from './features/Auth/authSlice';
+import AdminOrdersPage from './Pages/AdminOrdersPage';
 const options = {
   position: positions.BOTTOM_LEFT,
   timeout: 5000,
@@ -90,6 +92,22 @@ const router = createBrowserRouter([
     element: (
       <Protected>
         <AdminProductFormpage></AdminProductFormpage>
+      </Protected>
+    ),
+  },
+  {
+    path: "/admin/orders",
+    element: (
+      <Protected>
+        <AdminOrdersPage></AdminOrdersPage>
+      </Protected>
+    ),
+  },
+  {
+    path: "/stripe-checkout/",
+    element: (
+      <Protected>
+        <StripeCheckout></StripeCheckout>
       </Protected>
     ),
   },
@@ -154,7 +172,10 @@ const router = createBrowserRouter([
 function App() {
   const dispatch = useDispatch();
   const user=useSelector(selectloggedInUser);
-  // console.log('user is '+user);
+  const userChecked=useSelector(selectUserChecked);
+  useEffect(()=>{
+    dispatch(checkAuthAsync());
+  },[])
   useEffect(()=>{
     if(user){
  dispatch(fetchItemsByUserIdAsync())
@@ -165,9 +186,10 @@ function App() {
   )
   return (
     <div className="App">
+      {userChecked&&
       <Provider template={AlertTemplate} {...options}>
         <RouterProvider router={router} />
-      </Provider>
+      </Provider>}
     </div>
   );
 }

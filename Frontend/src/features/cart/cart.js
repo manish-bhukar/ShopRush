@@ -4,13 +4,14 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux';
-import { deleteItemsAsync, selectItems } from './cartSlice'
+import { deleteItemsAsync, selectCartLoaded, selectItems } from './cartSlice'
 import { updateItemsAsync } from './cartSlice';
 import { Navigate } from 'react-router-dom'
 export default function Cart(){
   const dispatch=useDispatch();
   const [open, setOpen] = useState(true);
   const items=useSelector(selectItems);
+  const cartLoaded=useSelector(selectCartLoaded);
   const totalAmt=items.reduce((total,item)=>total+item.product.price*item.quantity,0);
   const totalItems=items.reduce((total,item)=>total+item.quantity,0);
 
@@ -22,7 +23,7 @@ export default function Cart(){
   }
   return (
     <>
-    {!items.length && <Navigate to='/' replace={true}></Navigate>}
+    {!items.length &&cartLoaded&& <Navigate to='/' replace={true}></Navigate>}
       <div>
         <div className="mx-auto mt-7 bg-white max-w-4xl px-2 sm:px-2 lg:px-2">
           <h1 className="text-4xl my-3 font-bold tracking-tight text-gray-900">
