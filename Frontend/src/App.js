@@ -33,6 +33,7 @@ import AdminProductFormpage from './Pages/AdminProductFormpage';
 import { positions, Provider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 import { checkAuthAsync, selectUserChecked, selectloggedInUser } from './features/Auth/authSlice';
+import AdminOrdersPage from './Pages/AdminOrdersPage';
 const options = {
   position: positions.BOTTOM_LEFT,
   timeout: 5000,
@@ -91,6 +92,14 @@ const router = createBrowserRouter([
     element: (
       <Protected>
         <AdminProductFormpage></AdminProductFormpage>
+      </Protected>
+    ),
+  },
+  {
+    path: "/admin/orders",
+    element: (
+      <Protected>
+        <AdminOrdersPage></AdminOrdersPage>
       </Protected>
     ),
   },

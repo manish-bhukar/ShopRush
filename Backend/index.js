@@ -112,7 +112,9 @@ passport.deserializeUser(function (user, cb) {
     return cb(null, user);
   });
 });
-const stripe = require("stripe")('sk_test_51OFuUMSC1tgHClIzioK2h7TFJHAPGrdh0VkYTrm714jGoJndO2b91JD4DUszsg2xm6zkOL53oq3cKE4vX36nJ89500KGbWS8S6');
+const stripe = require("stripe")(
+  "sk_test_51OWaQoSJiXHqMzaA4bFvYfceKewRQwQJiiNTrRSTcyCUxIOw38AtCtOCKe1gIflm4nTNPFA58qR7ZS4WiRpG9t4a00hxa4n3ry"
+);
 
 app.use(express.static("public"));
 app.use(express.json());
@@ -120,6 +122,7 @@ app.use(express.json());
 
 
 app.post("/create-payment-intent", async (req, res) => {
+  console.log("req is ",req);
   const {totalAmt } = req.body;
 
   // Create a PaymentIntent with the order amount and currency
